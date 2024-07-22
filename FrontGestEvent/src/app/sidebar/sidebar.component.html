@@ -1,0 +1,26 @@
+
+<div class="SideBar">
+    <!-- <div class="image" > -->
+        <img src="assets/images/logo.png" alt="">
+    <!-- </div> -->
+    <div class="pages">
+            <a><i class="fa-solid fa-house"></i><span>Accueil</span></a> 
+            <a routerLink="/toto" id="User"><i class="fa-solid fa-user"></i><span>Utilisateurs</span></a> 
+            <a><i class="fa-solid fa-user"></i><span>Prestateurs</span></a> 
+            <a><i class="fa-solid fa-calendar-days"></i><span>Evénements</span></a>
+            <a class="logistique" (click)="Affiche()"><span>Logistique</span><i class="fa-solid fa-circle-chevron-down"></i></a>
+            <section class="liste" *ngIf="visible">
+                <a><i class="fa-solid fa-toolbox"></i><span>Equipement</span></a>
+                <a><i class="fa-solid fa-place-of-worship"></i><span>Lieu</span></a>
+            </section>
+            
+            <a><i class="fa-solid fa-gear"></i><span>Réglages</span></a> 
+    </div>
+    <div class="logout">
+        <a><i class="fa-solid fa-right-from-bracket"></i><span>Déconnexion</span></a> 
+    </div>
+</div>
+
+            
+
+
