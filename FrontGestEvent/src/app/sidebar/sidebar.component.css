@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900");
+
 .SideBar{
     width: 18vw;
     height: 100vh;
@@ -6,7 +8,7 @@
     flex-direction: column;
     justify-content: space-around;
     overflow: hidden;
-    /* padding-left: 20px; */
+    font-family: 'Poppins', sans-serif;
 }
 .SideBar img{
     max-width: 180px;
@@ -24,17 +26,14 @@ a{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: 55%;
+    height: 58%;
     margin-left: 10px;
-    /* margin-top: 50px; */
-    /* background-color: red; */
 }
 
 .pages a{
     padding: 10px 10px ;
     width: 300px;
     text-align: left;
-    margin: 3px 0px;
     background-color: transparent;
     border: none;
     border-radius: 30px;
@@ -66,18 +65,14 @@ a{
 
 
 
-
-.pages section {
-    width: 100%;
-}
-
 .pages section{
+    width: 110%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
+    height: 200px;
     background-color: #ff7a285d;
     overflow: hidden;
-    /* padding: 5px; */
     border-radius: 10px 0px 0px 10px;
     box-shadow: -2px 1px 6px rgba(0, 0, 0, 0.411);
 }
@@ -85,7 +80,7 @@ a{
     width: 100%;
     height: 50%;
     padding: 5px 10px;
-    /* background-color:transparent; */
+    background-color:transparent;
 }
 .pages section > a:hover{
     background-color: #ff7a283f;
@@ -96,7 +91,7 @@ a{
 
 
 .logout{
-    width: 70%;
+    width: 80%;
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
@@ -118,17 +113,18 @@ a{
 }
 
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1100px) {
     .logout>a span{
     display: none;
 }
     .logout{
-    margin-top: 20px;
+    justify-content: flex-start;
+    margin-left: 20px;
 }
 }
 
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
 
 .SideBar{
     padding-left: 0px;
@@ -142,7 +138,7 @@ a{
     flex-direction: column;
     height: 50%;
     align-items: start;
-    /* margin-top: -30px; */
+    gap: 5px;
 }
 
 .pages a span{
@@ -150,14 +146,11 @@ a{
 }
 
 .pages>a i{
-    /* margin-right: 15px; */
-    /* justify-content: space-between;  */
     display: flex;
     justify-content: center;
     align-items: center;
     width: 40px;
     height: 40px;
-    /* margin: 5px 0px; */
     border-radius: 10px;
     font-size: 1.1rem;
 }
@@ -169,17 +162,11 @@ a{
     background-color: transparent;
     padding: 0px;
     width: auto;
-    /* margin: 5px 0px; */
 }
 .pages>a:hover{
     background-color: transparent;
     cursor: pointer;
 }
-
-
-
-
-
 
 
 .pages section{
@@ -216,5 +203,9 @@ a{
 }
 .pages section a span{
     display: none;
+}
+
+.logout{
+    margin-left: 10px;
 }
 }
