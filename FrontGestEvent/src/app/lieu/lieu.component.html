@@ -1,0 +1,78 @@
+<div class="Bigblock">
+  <div class="nav">
+    <div class="bloc1">
+      <div class="recherche">
+        <input type="text" placeholder="recherche">
+      </div>
+      <!-- <div class="sombre">
+
+      </div> -->
+      <div class="profil">
+        <div class="textezone">
+          <img src="assets/images/profil.jpg" alt="">
+          <span><h3>Mody Barry</h3> <br> Admini</span>
+        </div>
+        <button><i class="fa-solid fa-circle-chevron-down"></i></button>
+      </div>
+    </div>
+    <div class="bloc2">
+      <div class="gauche">
+                    <span class="cherche">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Recherche">
+                    </span>
+      </div>
+      <div class="droite">
+        <a (click)="afficher()"><i class="fa-solid fa-plus"></i><span>Ajouter lieu</span></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="tableau" >
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>adresse</th>
+          <th>salle</th>
+          <th>capacite</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="lieus">
+        <tr *ngFor="let lieu of lieus">
+          <td>{{lieu.id}}</td>
+          <td>{{lieu.nom}}</td>
+          <td>{{lieu.adresse}}</td>
+          <td>{{lieu.salle}}</td>
+          <td>{{lieu.capacite}}</td>
+          <td>
+            <i class="fa-regular fa-pen-to-square"></i>
+            <i class="fa-solid fa-trash-can"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ombre" *ngIf="visible">
+    <div action="">
+      <div class="btnFermer" (click)="cacher()"><i class="fa-solid fa-xmark"></i></div>
+      <h1>Ajouter un évévement</h1>
+      <div class="input">
+        <label for="nom">Nom</label>
+        <input id="nom" type="text" placeholder="Nom du lieu" [(ngModel)]="creer.nom">
+        <label for="adresse">Adresse</label>
+        <input id="adresse" type="text" placeholder="L'adresse du lieu" [(ngModel)]="creer.adresse">
+        <label for="salle">Salle</label>
+        <input id="salle" type="text" placeholder="Nom de la salle" [(ngModel)]="creer.salle">
+        <label for="capacite">Capacité</label>
+        <input id="capacite" type="text" placeholder="Capacité de la salle" [(ngModel)]="creer.capacite">
+      </div>
+      <div class="btnAjouter"> <button (click)="creerLieu()">Ajouter</button></div>
+    </div>
+  </div>
+</div>
+<!-- <router-outlet></router-outlet> -->
