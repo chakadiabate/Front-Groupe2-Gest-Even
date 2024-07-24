@@ -1,0 +1,91 @@
+.Bigblock{
+    width: calc(100vw - 18vw);
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    margin: 20px;
+
+    
+}
+
+.card{
+   
+    width: 96%;
+    height: 15%;
+    margin-left: 25px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+   
+}
+
+
+
+.blockCalendar{
+ width: 55%;
+ display: flex;
+ flex-flow: row wrap;
+ background-color: white;
+ border-radius: 10px;
+ padding-left: 2%;
+ height: 50vh;
+}
+
+.imgteam{
+    margin-left: 5%;
+    margin-top: 10%;
+}
+.demo-inline-calendar-card {
+    width:200px;
+    height: 265px;
+     background-color: #1B375F;
+     margin-top: 20px;
+}
+
+.imgevent img{
+   height: 80px;
+   
+}
+P{
+
+}
+
+.recent1{
+    background-color: white;
+    align-items: center;
+   height: 6vh;
+   background-color: white;
+   border-radius: 10px;
+   margin-bottom: 5px;
+   font-weight: bold;
+   display: flex;
+   align-items: center;
+  
+   
+}
+
+
+.recent2{
+   padding: 5px;
+   height: 12.3vh;
+   display: flex;
+   background-color: white;
+   border-radius: 10px;
+   margin-bottom: 5px;
+   
+}
+
+.blockRecent{
+   width: 40%;
+   margin-left: 2%;
+  
+   
+}
+
+
+  
+
