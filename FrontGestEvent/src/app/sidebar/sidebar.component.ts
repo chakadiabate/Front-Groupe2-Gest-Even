@@ -1,7 +1,6 @@
 import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {OnInit} from "@angular/core";
 
 import { RouterLink } from '@angular/router';
 import { RouterLinkActive } from '@angular/router';
@@ -14,7 +13,6 @@ import { RouterLinkActive } from '@angular/router';
 })
 export class SidebarComponent {
   visible = false;
-  background : String = "none";
 
   Affiche() {
     if (this.visible === false) {
@@ -22,26 +20,5 @@ export class SidebarComponent {
     } else {
       this.visible = false;
     }
-  }
-
-  changebackground(background:String):void{
-    this.background = "none";
-    this.background = background;
-
-  }
-
-/*  links = document.querySelectorAll(" .pages a");
-  ngOnInit(): void {
-    this.links.forEach((item, index) => {
-      item.addEventListener("click", ()=>{
-        item.style.backgroundColor = "#dcdcdc"
-      })
-      // Perform any operation you want on each item
-    });
-  }*/
-  onLinkClick(event: Event): void {
-    const target = event.target as HTMLElement;
-    this.background = "none";
-    target.style.backgroundColor = '#dcdcdc';
   }
 }

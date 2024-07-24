@@ -1,20 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900");
-
 .SideBar{
-  width: 18vw;
-  height: 100vh;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  overflow: hidden;
-  font-family: 'Poppins', sans-serif;
+    width: 18vw;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    overflow: hidden;
+    /* padding-left: 20px; */
 }
 .SideBar img{
-  max-width: 180px;
+    max-width: 180px;
 }
 a{
-  text-decoration: none;
+    text-decoration: none;
 }
 
 
@@ -23,153 +21,168 @@ a{
 
 
 .pages{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  height: 58%;
-  margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 55%;
+    margin-left: 10px;
+    /* margin-top: 50px; */
+    /* background-color: red; */
 }
 
 .pages a{
-  padding: 10px 10px ;
-  width: 300px;
-  text-align: left;
-  background-color: transparent;
-  border: none;
-  border-radius: 30px;
-  color: #FF7A28;
-  padding-left: 20px;
-  font-size: medium;
-
+    padding: 10px 10px ;
+    width: 300px;
+    text-align: left;
+    margin: 3px 0px;
+    background-color: transparent;
+    border: none;
+    border-radius: 30px;
+    color: #FF7A28;
+    padding-left: 20px;
+    font-size: medium;
+    
 }
 
 .pages a:hover{
-  background-color: #dcdcdc;
-  cursor: pointer;
-  box-shadow: -2px 1px 6px rgba(0, 0, 0, 0.411);
+    background-color: #dcdcdc;
+    cursor: pointer;
+    box-shadow: -2px 1px 6px rgba(0, 0, 0, 0.411);
 }
 .pages a:focus{
-  background-color: #dcdcdc;
+    background-color: #dcdcdc;
 }
 .pages a:active{
-  background-color: #dcdcdc;
+    background-color: #dcdcdc;
 }
 
 .pages a span{
-  color: black;
-  margin-left: 10px;
+    color: black;
+    margin-left: 10px;
 }
 .pages .logistique span{
-  margin-right: 15px;
+    margin-right: 15px;
 }
 
 
+
+
+.pages section {
+    width: 100%;
+}
 
 .pages section{
-  width: 110%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 200px;
-  background-color: #ff7a285d;
-  overflow: hidden;
-  border-radius: 10px 0px 0px 10px;
-  box-shadow: -2px 1px 6px rgba(0, 0, 0, 0.411);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ff7a285d;
+    overflow: hidden;
+    /* padding: 5px; */
+    border-radius: 10px 0px 0px 10px;
+    box-shadow: -2px 1px 6px rgba(0, 0, 0, 0.411);
 }
 .pages section >a{
-  width: 100%;
-  height: 50%;
-  padding: 5px 10px;
-  background-color:transparent;
+    width: 100%;
+    height: 50%;
+    padding: 5px 10px;
+    /* background-color:transparent; */
 }
 .pages section > a:hover{
-  background-color: #ff7a283f;
-  /* border-radius: 0px; */
-  border-radius: 10px 0px 0px 10px;
-
+    background-color: #ff7a283f;
+    /* border-radius: 0px; */
+    border-radius: 10px 0px 0px 10px;
+    
 }
 
 
 .logout{
-  width: 80%;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  margin-left: 10px;
+    width: 70%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
 }
 .logout>a{
-  padding: 10px 10px;
-  border: solid 2px #FF7A28;
-  border-radius: 5px;
+    padding: 10px 10px;
+    border: solid 2px #FF7A28;
+    border-radius: 5px;
 }
 .logout>a:hover{
-  cursor: pointer;
-  background-color: #FF7A28;
-  color: white;
+    cursor: pointer;
+    background-color: #FF7A28;
+    color: white;
 }
 .logout>a i{
-  margin-right: 10px;
-}
-
-
-@media screen and (max-width: 1100px) {
-  .logout>a span{
-    display: none;
-  }
-  .logout{
-    justify-content: flex-start;
-    margin-left: 20px;
-  }
+    margin-right: 10px;
 }
 
 
 @media screen and (max-width: 850px) {
+    .logout>a span{
+    display: none;
+}
+    .logout{
+    margin-top: 20px;
+}
+}
 
-  .SideBar{
+
+@media screen and (max-width: 800px) {
+
+.SideBar{
     padding-left: 0px;
     display: flex;
     margin:  0 auto;
     width: 70px;
-  }
+}
 
-  .pages{
+.pages{
     display: flex;
     flex-direction: column;
     height: 50%;
     align-items: start;
-    gap: 5px;
-  }
+    /* margin-top: -30px; */
+}
 
-  .pages a span{
+.pages a span{
     display: none;
-  }
+}
 
-  .pages>a i{
+.pages>a i{
+    /* margin-right: 15px; */
+    /* justify-content: space-between;  */
     display: flex;
     justify-content: center;
     align-items: center;
     width: 40px;
     height: 40px;
+    /* margin: 5px 0px; */
     border-radius: 10px;
     font-size: 1.1rem;
-  }
-  .pages>a i:hover, .pages>a i:focus{
+}
+.pages>a i:hover, .pages>a i:focus{
     background-color:#dcdcdc ;
     box-shadow: 0px 1px 0px 2px rgba(0, 0, 0, 0.411);
-  }
-  .pages>a{
+}
+.pages>a{
     background-color: transparent;
     padding: 0px;
     width: auto;
-  }
-  .pages>a:hover{
+    /* margin: 5px 0px; */
+}
+.pages>a:hover{
     background-color: transparent;
     cursor: pointer;
-  }
+}
 
 
-  .pages section{
+
+
+
+
+
+.pages section{
     width: 50px;
     overflow:visible;
     border-radius: 10px;
@@ -180,32 +193,28 @@ a{
     align-items: center;
     margin-left: -4px;
     box-shadow: none;
-  }
-  .pages section > a{
+}
+.pages section > a{
     width: 100%;
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  .pages section > a:hover{
+}
+.pages section > a:hover{
     background-color: transparent;
     box-shadow: none;
-  }
-  .pages section > a i{
+}
+.pages section > a i{
     margin: 0 auto;
     padding: 10px;
     border-radius: 5px;
-  }
-  .pages section > a i:hover{
-    background-color:#dcdcdc ;
+}
+.pages section > a i:hover{
+     background-color:#dcdcdc ;
     box-shadow: 0px 1px 0px 2px rgba(0, 0, 0, 0.411);
-  }
-  .pages section a span{
+}
+.pages section a span{
     display: none;
-  }
-
-  .logout{
-    margin-left: 10px;
-  }
+}
 }
