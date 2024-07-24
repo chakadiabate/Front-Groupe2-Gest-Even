@@ -13,7 +13,11 @@ import { RouterLinkActive } from '@angular/router';
 })
 export class SidebarComponent {
   visible = false;
+  isModified = false;
 
+  toggleStyle() {
+    this.isModified = !this.isModified;
+  }
   Affiche() {
     if (this.visible === false) {
       this.visible = true;

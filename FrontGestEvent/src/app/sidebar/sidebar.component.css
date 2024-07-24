@@ -26,12 +26,15 @@ a{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: 58%;
+    height: 65%;
     margin-left: 10px;
+    margin-top: -10px;
+    /* background-color: red; */
+    gap: 3px;
 }
 
 .pages a{
-    padding: 10px 10px ;
+    padding: 8px 5px ;
     width: 300px;
     text-align: left;
     background-color: transparent;
@@ -39,7 +42,7 @@ a{
     border-radius: 30px;
     color: #FF7A28;
     padding-left: 20px;
-    font-size: medium;
+    font-size: 0.9rem;
     
 }
 
@@ -70,15 +73,18 @@ a{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 200px;
+    /* height: 100px; */
     background-color: #ff7a285d;
     overflow: hidden;
     border-radius: 10px 0px 0px 10px;
     box-shadow: -2px 1px 6px rgba(0, 0, 0, 0.411);
+    margin-left: 30px;
 }
 .pages section >a{
+    display: flex;
+    align-items: center;
     width: 100%;
-    height: 50%;
+    height: 40%;
     padding: 5px 10px;
     background-color:transparent;
 }
@@ -124,7 +130,7 @@ a{
 }
 
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 900px) {
 
 .SideBar{
     padding-left: 0px;
@@ -136,9 +142,10 @@ a{
 .pages{
     display: flex;
     flex-direction: column;
-    height: 50%;
+    height: 70%;
     align-items: start;
     gap: 5px;
+    margin-top: -10px;
 }
 
 .pages a span{
@@ -149,10 +156,12 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40px;
-    height: 40px;
+    /* margin: 0px; */
+    margin-left: 5px;
+    width: 35px;
+    height: 35px;
     border-radius: 10px;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 .pages>a i:hover, .pages>a i:focus{
     background-color:#dcdcdc ;
@@ -162,15 +171,17 @@ a{
     background-color: transparent;
     padding: 0px;
     width: auto;
+    box-shadow: none;
 }
 .pages>a:hover{
     background-color: transparent;
     cursor: pointer;
+    box-shadow: none;
 }
 
 
 .pages section{
-    width: 50px;
+    width: 40px;
     overflow:visible;
     border-radius: 10px;
     display: flex;
@@ -178,12 +189,13 @@ a{
     justify-content: center;
     font-size: 1rem;
     align-items: center;
-    margin-left: -4px;
+    margin-left: 2px;
     box-shadow: none;
+    padding: 0px;
 }
 .pages section > a{
-    width: 100%;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -194,7 +206,7 @@ a{
 }
 .pages section > a i{
     margin: 0 auto;
-    padding: 10px;
+    padding: 8px;
     border-radius: 5px;
 }
 .pages section > a i:hover{

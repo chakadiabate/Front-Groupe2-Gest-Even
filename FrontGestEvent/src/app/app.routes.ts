@@ -9,7 +9,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 export const routes: Routes = [
     // { path: '', component: AppComponent },
     { path: 'toto', component: NavbarComponent },
-    { path: 'toto', component: SidebarComponent }
+    { path: 'toto', component: SidebarComponent },
+    { path: 'evenement', component: EvenementComponent }
     // { path: 'A', component: n }
     
     

@@ -4,16 +4,26 @@
         <img src="assets/images/logo.png" alt="">
     <!-- </div> -->
     <div class="pages">
+
             <a><i class="fa-solid fa-house"></i><span>Accueil</span></a> 
+
             <a routerLink="/toto" id="User"><i class="fa-solid fa-user"></i><span>Utilisateurs</span></a> 
-            <a><i class="fa-solid fa-user"></i><span>Prestateurs</span></a> 
-            <a><i class="fa-solid fa-calendar-days"></i><span>Evénements</span></a>
-            <a class="logistique" (click)="Affiche()"><span>Logistique</span><i class="fa-solid fa-circle-chevron-down"></i></a>
+
+            <a><i class="fa-solid fa-user-check"></i><span>Prestateurs</span></a> 
+
+            <a routerLink="/evenement"><i class="fa-solid fa-calendar-days"></i><span>Evénements</span></a>
+
+            <a class="logistique" (click)="Affiche()"><i class="fa-solid fa-truck-fast"></i><span>Logistique</span><i class="fa-solid fa-circle-chevron-down"></i></a>
+
             <section class="liste" *ngIf="visible">
                 <a><i class="fa-solid fa-toolbox"></i><span>Equipement</span></a>
                 <a><i class="fa-solid fa-place-of-worship"></i><span>Lieu</span></a>
             </section>
-            
+
+            <a routerLink="/evenement"><i class="fa-solid fa-money-bill"></i><span>Réservations</span></a>
+
+            <a routerLink="/evenement"><i class="fa-solid fa-list-check"></i><span>Task-list</span></a>
+
             <a><i class="fa-solid fa-gear"></i><span>Réglages</span></a> 
     </div>
     <div class="logout">
