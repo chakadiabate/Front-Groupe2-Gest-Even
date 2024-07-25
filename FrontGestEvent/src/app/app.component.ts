@@ -5,6 +5,7 @@ import { CorpsComponent } from "./corps/corps.component";
 import { RouterLink } from '@angular/router';
 import { RouterLinkActive } from '@angular/router';
 import { LoginComponent } from "./login/login.component";
+import { AcceuilComponent } from "./acceuil/acceuil.component";
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -16,7 +17,8 @@ import { LoginComponent } from "./login/login.component";
     // RouterLink,
     // RouterLinkActive,
     ,
-    LoginComponent
+    LoginComponent,
+    AcceuilComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

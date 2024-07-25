@@ -1,0 +1,84 @@
+.card{
+    margin: 1%;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background-color: var(--white);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.card-left{
+    display: flex;
+    flex-direction: column;
+    width: 38%;
+    align-items: center;
+    margin: 3%;
+}
+.logo{
+    width:17vw;
+    height:24vh ;
+}
+.logo img{
+    width: 100%;
+    height: 100%;
+}
+.card-title{
+    display: flex;
+    flex-direction: column;
+ }
+
+.card-title h2{
+   font-size: medium;
+}
+.login{
+    display: flex;
+    flex-direction: column;
+
+}
+.login input{
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    width:20vw;
+    border: solid 2px var(--orange);
+   
+}
+
+.card-right{
+    width: 45%;
+    margin: 2%;
+}
+.card-right img{
+    width: 100%;
+    height: 90%;
+}
+.card-title{
+    align-items: center;
+}
+button{
+    padding: 10px;
+    background-color: var(--orange);
+    border-radius: 10px;
+    color: var(--white);
+    border: none;
+}
+.create-cmpte{
+    color: var(--black);
+    text-decoration: none;
+    font-size: small;
+}
+.insc{
+    color: var(--black);
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    color: var(--orange);
+    font-size: small;
+}
+.liens{
+    margin: 2%;
+    display: flex;
+    flex-flow: row wrap;
+    /* justify-content: space-around; */
+}

@@ -1,0 +1,36 @@
+
+<div class="SideBar">
+    <!-- <div class="image" > -->
+        <img src="assets/images/logo.png" alt="">
+    <!-- </div> -->
+    <div class="pages">
+
+            <a routerLink="/acceuil"><i class="fa-solid fa-house"></i><span>Accueil</span></a> 
+
+            <a routerLink="/utilisateur" id="User"><i class="fa-solid fa-user"></i><span>Utilisateurs</span></a> 
+
+            <a routerLink="/prestateur"><i class="fa-solid fa-users"></i><span>Prestateurs</span></a> 
+
+            <a routerLink="/evenement"><i class="fa-solid fa-calendar-days"></i><span>Evénements</span></a>
+
+            <a class="logistique" (click)="Affiche()"><i class="fa-solid fa-truck-fast"></i><span>Logistique</span><i class="fa-solid fa-circle-chevron-down"></i></a>
+
+            <section class="liste" *ngIf="visible">
+                <a routerLink="/equipement"><i class="fa-solid fa-toolbox"></i><span>Equipement</span></a>
+                <a routerLink="/lieu"><i class="fa-solid fa-place-of-worship"></i><span>Lieu</span></a>
+            </section>
+
+            <a routerLink="/reservation"><i class="fa-solid fa-money-bill"></i><span>Réservations</span></a>
+
+            <a routerLink="/evenement"><i class="fa-solid fa-list-check"></i><span>Task-list</span></a>
+
+            <a><i class="fa-solid fa-gear"></i><span>Réglages</span></a> 
+    </div>
+    <div routerLink="/login" class="logout">
+        <a><i class="fa-solid fa-right-from-bracket"></i><span>Déconnexion</span></a> 
+    </div>
+</div>
+
+            
+
+
