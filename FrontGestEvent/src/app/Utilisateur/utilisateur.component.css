@@ -295,8 +295,8 @@
 
 form{
     background-color: white;
-    width: 60%;
-    height: 95%;
+    width: 50%;
+    height: 70%;
     border-radius: 10px;
     box-shadow: 2px 2px 20px #ed6414;
     padding: 5px;
@@ -440,14 +440,7 @@ form::-webkit-scrollbar{
     } */
     
 }
-/* @media screen and (max-width: 1200px)  {
-    .tableau table{
-        min-width: 800px;
-        flex-wrap: nowrap;
-        overflow: scroll;
-    }
-    
-} */
+
 
 
 

@@ -1,15 +1,17 @@
+import { Component } from '@angular/core';
+import { NavbarComponent } from '../Utilisateur/utilisateur.component';
+import { SidebarComponent } from '../sidebar/sidebar.component';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { NgFor, NgIf } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
 import { EventServiceService } from '../Services/event-service.service';
 @Component({
-  selector: 'app-evenement',
+  selector: 'app-corps',
   standalone: true,
   imports: [NgIf, RouterOutlet, NgFor],
-  templateUrl: './evenement.component.html',
-  styleUrl: './evenement.component.css',
+  templateUrl: './tache.component.html',
+  styleUrl: './tache.component.css',
 })
-export class EvenementComponent {
+export class TacheComponent {
   evenement: any[] = [];
 
   constructor(private eventService: EventServiceService) {}

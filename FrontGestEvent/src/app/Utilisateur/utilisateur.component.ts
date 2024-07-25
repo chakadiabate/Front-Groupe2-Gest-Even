@@ -1,26 +1,29 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-import { EventServiceService } from '../Services/event-service.service';
+import { category } from '../Modeles/Category';
+import { UserService } from '../Services/user.service';
 @Component({
-  selector: 'app-evenement',
+  selector: 'app-navbar',
   standalone: true,
-  imports: [NgIf, RouterOutlet, NgFor],
-  templateUrl: './evenement.component.html',
-  styleUrl: './evenement.component.css',
+  imports: [NgIf,NgFor, RouterOutlet],
+  templateUrl: './utilisateur.component.html',
+  styleUrl: './utilisateur.component.css',
 })
-export class EvenementComponent {
-  evenement: any[] = [];
+export class NavbarComponent {
+  // utilisateur: any[] = [];
 
-  constructor(private eventService: EventServiceService) {}
+  cat:category[] = [];
+
+  constructor(private userservice: UserService) {}
 
   ngOnInit() {
     this.getEvent();
   }
 
   getEvent() {
-    return this.eventService.getNames().subscribe((data) => {
-      this.evenement = data;
+    return this.userservice.getCathegorie().subscribe((data) => {
+      this.cat = data;
     });
   }
 

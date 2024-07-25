@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { SidebarComponent } from "./sidebar/sidebar.component";
-import { CorpsComponent } from "./corps/corps.component";
 import { RouterLink } from '@angular/router';
 import { RouterLinkActive } from '@angular/router';
+import { TacheComponent } from './Tache/tache.component';
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet,
     SidebarComponent,
-    CorpsComponent,
+    TacheComponent,
     RouterModule
     // RouterLink,
     // RouterLinkActive,
