@@ -37,6 +37,9 @@ export class UtilisateurServiceService {
   }
 
   getRoles(){
-    return this.http.get('http://localhost:8080/gestEvent/role/listeRole');
+    return this.http.get('http://localhost:8081/gestEvent/role/listeRole');
+  }
+  searchUsers(name: string): Observable<Utilisateur[]> {
+    return this.http.get<Utilisateur[]>(`${this.baseUrl}/TriParNom`, { params: { name } });
   }
 }

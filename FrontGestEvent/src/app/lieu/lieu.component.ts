@@ -3,6 +3,7 @@ import {NgForOf, NgIf} from "@angular/common";
 import {LieuService} from "../Service/Lieu.service";
 import {HttpClient} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import { SidebarComponent } from "../sidebar/sidebar.component";
 
 @Component({
   selector: 'app-lieu',
@@ -11,7 +12,8 @@ import {FormsModule} from "@angular/forms";
     NgIf,
     NgForOf,
     FormsModule,
-  ],
+    SidebarComponent
+],
   templateUrl: './lieu.component.html',
   styleUrl: './lieu.component.css'
 })

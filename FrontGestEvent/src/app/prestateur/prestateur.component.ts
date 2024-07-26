@@ -7,11 +7,12 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { SidebarComponent } from "../sidebar/sidebar.component";
 
 @Component({
   selector: 'app-prestateur',
   standalone: true,
-  imports: [NgIf, RouterOutlet, MatCardModule, MatDatepickerModule, RouterLink, RouterLinkActive, NgForOf, FormsModule],
+  imports: [NgIf, RouterOutlet, MatCardModule, MatDatepickerModule, RouterLink, RouterLinkActive, NgForOf, FormsModule, SidebarComponent],
   providers: [provideNativeDateAdapter()],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './prestateur.component.html',

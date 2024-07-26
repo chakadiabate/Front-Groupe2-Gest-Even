@@ -5,6 +5,7 @@ import { CommonModule, NgForOf, NgIf } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Role, Utilisateur } from '../Models/utilisateurmodel.component';
 import { RoleService } from '../Service/role.service';
+import { SidebarComponent } from "../sidebar/sidebar.component";
 
 @Component({
   selector: 'app-utilisateur',
@@ -14,8 +15,9 @@ import { RoleService } from '../Service/role.service';
     NgForOf,
     FormsModule,
     CommonModule,
-    ReactiveFormsModule
-  ],
+    ReactiveFormsModule,
+    SidebarComponent
+],
   templateUrl: './utilisateur.component.html',
   styleUrl: './utilisateur.component.css'
 })
@@ -28,6 +30,7 @@ export class UtilisateurComponent implements OnInit{
   roless : any =[]
   isEditing: boolean = false;
   currentUserId: number | null = null;
+  searchQuery: string = '';
 
   constructor(
     private utilisateurService: UtilisateurServiceService,
@@ -140,6 +143,12 @@ export class UtilisateurComponent implements OnInit{
     );
   }
 
+  onSearch(): void {
+    this.utilisateurService.searchUsers(this.searchQuery).subscribe(
+      data => this.utilisateurs = data,
+      error => console.error(error)
+    );
+  }
 
 
 

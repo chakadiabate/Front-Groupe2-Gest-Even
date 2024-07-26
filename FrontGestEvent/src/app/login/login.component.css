@@ -1,19 +1,28 @@
 .card{
-    margin: 1%;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     border-radius: 15px;
     background-color: var(--white);
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    /* flex-flow: row wrap; */
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 .card-left{
+    min-width: 30%;
+    /* background-color: red; */
     display: flex;
     flex-direction: column;
+    justify-content: center;
     width: 38%;
     align-items: center;
     margin: 3%;
+}
+.form-group{
+    /* width: ; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .logo{
     width:17vw;
@@ -32,8 +41,10 @@
    font-size: medium;
 }
 .login{
+    /* width:300px; */
     display: flex;
     flex-direction: column;
+    gap: 15px;
 
 }
 .login input{
@@ -46,6 +57,7 @@
 }
 
 .card-right{
+    min-width: 30%;
     width: 45%;
     margin: 2%;
 }
@@ -56,8 +68,10 @@
 .card-title{
     align-items: center;
 }
-button{
-    padding: 10px;
+.login button{
+    min-width: 50%;
+    margin: 0 auto;
+    padding: 15px 0px;
     background-color: var(--orange);
     border-radius: 10px;
     color: var(--white);
@@ -81,4 +95,27 @@ button{
     display: flex;
     flex-flow: row wrap;
     /* justify-content: space-around; */
+}
+@media screen and (max-width: 700px) {
+    .card{
+        
+        display: block;
+        flex-direction: column;
+    }
+    .card-left{
+        width: 100%;
+    }
+    .card-right{
+        width: 100%;
+    }
+    .login{
+        width: 100%;
+    
+    
+    }
+    .login input{
+        width: 55vw;
+    
+    
+    }
 }

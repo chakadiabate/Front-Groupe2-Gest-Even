@@ -5,19 +5,20 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { RouterOutlet } from '@angular/router';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
+import { SidebarComponent } from "../sidebar/sidebar.component";
 
 @Component({
   selector: 'app-acceuil',
   standalone: true,
-  imports: 
-  [
-     NgIf,
-     RouterOutlet,
-     MatDatepickerModule,
-     MatCardModule,
-     CommonModule,
-     CanvasJSAngularChartsModule
-  ],
+  imports: [
+    NgIf,
+    RouterOutlet,
+    MatDatepickerModule,
+    MatCardModule,
+    CommonModule,
+    CanvasJSAngularChartsModule,
+    SidebarComponent
+],
   providers: [provideNativeDateAdapter()],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './acceuil.component.html',
@@ -26,7 +27,7 @@ import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 export class AcceuilComponent {
   selected = model<Date | null>(null);
 
-  dps = [{x: 1, y: 10}, {x: 2, y: 10}, {x: 3, y: 10}, {x: 4, y: 10}, {x: 5, y: 10},{x: 6, y: 10}, {x: 7, y: 10}];
+  dps = [{x: 1, y: 10}, {x: 2, y: 10}, {x: 3, y: 10}, {x: 4, y: 10}, {x: 5, y: 10},{x: 6, y: 10}, {x: 7, y: 13}];
 	chart: any;
 	
 	chartOptions = {

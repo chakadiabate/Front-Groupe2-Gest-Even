@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { EquipementService } from '../Service/equipement.service';
+import { SidebarComponent } from "../sidebar/sidebar.component";
 
 @Component({
   selector: 'app-equipement',
@@ -11,7 +12,8 @@ import { EquipementService } from '../Service/equipement.service';
     NgIf,
     NgForOf,
     FormsModule,
-  ],
+    SidebarComponent
+],
   templateUrl: './equipement.component.html',
   styleUrl: './equipement.component.css'
 })

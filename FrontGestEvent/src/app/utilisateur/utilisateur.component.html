@@ -1,11 +1,14 @@
+<div class="body">
+    <app-sidebar></app-sidebar>
 <div class="Bigblock">
     <div class="nav">
   
         <div class="bloc1">
             <div class="recherche">
                 <span class="cherche">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Recherche">
+                    <i (click)="onSearch()" class="fa-solid fa-magnifying-glass"></i>
+                    <input [(ngModel)]="searchQuery" placeholder="Rechercher un utilisateur">
+                    <!-- <button (click)="onSearch()">Rechercher</button> -->
                 </span>
             </div>
             
@@ -16,6 +19,15 @@
                     </div>
                         <span><i class="fa-solid fa-circle-chevron-down"></i></span>
                 </div>
+                <div *ngIf="utilisateurs.length > 0">
+                    <h3>Résultats de la recherche :</h3>
+                    <ul>
+                      <li *ngFor="let user of utilisateurs">{{ user.nom }}</li>
+                    </ul>
+                  </div>
+                  <div *ngIf="utilisateurs.length === 0 && searchQuery !== ''">
+                    <p>Aucun utilisateur trouvé.</p>
+                  </div>
         </div>
   
         <div class="bloc2">
@@ -49,7 +61,7 @@
                     <td>{{ user.telephone }}</td>
                     <td>{{ user.role ? user.role.role : 'Non défini' }}</td>
                     <td>
-                        <i  (click)="afficherEq()" (click)="editUser(user)"   style="color: rgb(53, 53, 238);" class="fa-solid fa-pen-to-square"></i>
+                        <i  (click)="afficherEq()" (click)="editUser(user)" style="color: rgb(53, 53, 238);" class="fa-solid fa-pen-to-square"></i>
                         <i (click)="afficherSup()" *ngIf="user.id !== undefined" (click)="deleteUser(user.id)"  style="color: red;" class="fa-solid fa-trash"></i>
                     </td>
                   </tr>
@@ -111,3 +123,4 @@
 
   </div>
   <!-- <router-outlet></router-outlet> -->
+</div>

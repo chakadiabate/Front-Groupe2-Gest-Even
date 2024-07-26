@@ -1,3 +1,9 @@
+.content-all{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
 .contenu{
     height: 98vh;
     padding-left: 2vw;

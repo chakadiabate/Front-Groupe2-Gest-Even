@@ -4,6 +4,7 @@ import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { UtilisateurServiceService } from '../Service/utilisateur.service';
+import { SidebarComponent } from "../sidebar/sidebar.component";
 
 
 @Component({
@@ -14,7 +15,9 @@ import { UtilisateurServiceService } from '../Service/utilisateur.service';
     NgForOf,
     RouterOutlet,
     HttpClientModule,
-    FormsModule],
+    FormsModule,
+    SidebarComponent
+],
   templateUrl: './reservation.component.html',
   styleUrl: './reservation.component.css'
 })
