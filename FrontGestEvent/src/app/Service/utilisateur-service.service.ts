@@ -8,8 +8,13 @@ import { Role, Utilisateur } from '../models/utilisateur.model';
   providedIn: 'root'
 })
 export class UtilisateurServiceService {
+<<<<<<< Updated upstream:FrontGestEvent/src/app/Service/utilisateur-service.service.ts
   private baseUrl = 'http://localhost:8080/gestEvent/user';
   
+=======
+  private baseUrl = 'http://localhost:8081/gestEvent/user';
+
+>>>>>>> Stashed changes:FrontGestEvent/src/app/Service/utilisateur.service.ts
   constructor(private http: HttpClient) {}
 
   createUser(utilisateur: Utilisateur): Observable<Utilisateur> {

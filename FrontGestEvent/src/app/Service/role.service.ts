@@ -17,9 +17,9 @@ export class RoleService {
     return this.http.get<Role[]>(`${this.baseUrl}`);
   }
 
-  
 
-  
+
+
 
   // Ajouter un nouveau rôle
   addRole(role: Role): Observable<Role> {

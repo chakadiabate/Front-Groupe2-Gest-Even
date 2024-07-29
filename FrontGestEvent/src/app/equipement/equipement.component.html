@@ -1,0 +1,93 @@
+<div class="Bigblock">
+  <app-sidebar></app-sidebar>
+  <div class="nav">
+    <div class="bloc1">
+      <div class="recherche">
+        <input type="text" placeholder="recherche">
+      </div>
+      <div class="profil">
+        <div class="textezone">
+          <img src="assets/images/profil.jpg" alt="">
+          <span><h3>Mody Barry</h3> <br> Admin</span>
+        </div>
+        <button><i class="fa-solid fa-circle-chevron-down"></i></button>
+      </div>
+    </div>
+    <div class="bloc2">
+      <div class="gauche">
+        <span class="cherche">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Recherche">
+        </span>
+      </div>
+      <div class="droite">
+        <a (click)="afficher()"><i class="fa-solid fa-plus"></i><span>Ajouter Equipement</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="tableau">
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Prestateur</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let equipement of equipements">
+        <td>{{ equipement.id }}</td>
+        <td>{{ equipement.name }}</td>
+        <td>{{ equipement.prestateur }}</td>
+        <td>{{ equipement.description }}</td>
+        <td>
+          <a (click)="showSecondPopup(equipement)">
+            <i class="fa-regular fa-pen-to-square" style="margin-right: 10px; color: orange;"></i>
+            <i class="fa-solid fa-trash-can" (click)="deleteEquipement(equipement.id)" style="color: #A30D11;"></i>
+          </a>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="ombre" *ngIf="visible">
+    <form (submit)="addEquipement()">
+      <div class="btnFermer" (click)="cacher()"><i class="fa-solid fa-xmark"></i></div>
+      <h1>Ajouter un équipement</h1>
+      <div class="input">
+        <div class="label">
+          <label for="name">Nom</label>
+          <label for="prestateur">Nom du prestateur</label>
+          <label for="description">description</label>
+        </div>
+        <div class="Entree">
+          <input type="text" id="name" [(ngModel)]="newEquipement.name" placeholder="Nom de l'équipement" name="name">
+          <input type="text" id="prestateur" [(ngModel)]="newEquipement.prestateur" placeholder="Nom du prestateur" name="prestateur">
+          <input type="text" id="description" [(ngModel)]="newEquipement.description" placeholder="Description de l'equipement" name="equipement">
+
+        </div>
+      </div>
+      <div class="btnAjouter"><button type="submit">Ajouter</button></div>
+    </form>
+  </div>
+
+  <div class="ombre" *ngIf="isVisibleSecondPopup">
+    <form (submit)="updateEquipement()">
+      <div class="btnFermer" (click)="hideSecondPopup()"><i class="fa-solid fa-xmark"></i></div>
+      <h1>Mettre à jour un équipement</h1>
+      <div class="input">
+        <div class="label">
+          <label for="name">Nom</label>
+          <label for="prestateur">Nom du prestateur</label>
+          <label for="description">description</label>
+        </div>
+        <div class="Entree">
+          <input type="text" id="updateName" [(ngModel)]="selectedEquipement.name" placeholder="Nom de l'équipement" name="updateName">
+          <input type="text" id="updatePrestateur" [(ngModel)]="selectedEquipement.prestateur" placeholder="Nom du prestateur" name="updatePrestateur">
+          <input type="text" id="updatedescription" [(ngModel)]="selectedEquipement.description" placeholder="Description de l'equipement" name="equipement">
+        </div>
+      </div>
+      <div class="btnAjouter"><button type="submit">Mise à jour</button></div>
+    </form>
+  </div>
+</div>

@@ -16,6 +16,35 @@ export class AuthService {
       Authorization: 'Basic ' + btoa(email + ':' + password)
     });
 
+<<<<<<< Updated upstream
     return this.http.get(`${this.baseUrl}/gestEvent/user/Users`, { headers });
+=======
+    return this.http.get<any[]>(`${this.baseUrl}/gestEvent/user/Users`, { headers }).pipe(
+      map(users => {
+        // Trouvez l'utilisateur connecté et définissez son rôle
+        const user = users.find(user => user.email === email);
+        if (user) {
+
+          this.userRoleSubject.next(user.role);
+
+
+          this.storeUserRole(user.role.role);
+          console.log('autentification', user.role.role);
+
+
+        }
+        return user;
+      })
+    );
+  }
+
+
+  private storeUserRole(role: string): void {
+    localStorage.setItem('userRole', role);
+  }
+
+  public getUserRole(): string | null {
+    return localStorage.getItem('userRole');
+>>>>>>> Stashed changes
   }
 }
