@@ -1,9 +1,6 @@
 import { Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { CorpsComponent } from './corps/corps.component';
 import{EvenementComponent} from './evenement/evenement.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { PrestateurComponent } from './prestateur/prestateur.component';
 import { LieuComponent } from './lieu/lieu.component';
@@ -12,6 +9,7 @@ import { ReglageComponent } from './reglage/reglage.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { LoginComponent } from './login/login.component';
+import { PrestateurListComponent } from './prestateur-list/prestateur-list.component';
 
 
 export const routes: Routes = [
@@ -19,11 +17,15 @@ export const routes: Routes = [
     { path: 'evenement', component: EvenementComponent },
     { path: 'acceuil', component:AcceuilComponent},
     { path: 'reservation', component: ReservationComponent },
-    { path: 'prestateur', component: PrestateurComponent },
+    { path: 'prestateur', component: PrestateurListComponent},
     { path: 'lieu', component: LieuComponent },
     { path: 'equipement', component: EquipementComponent },
     { path: 'reglage', component:ReglageComponent },
-    { path: 'utilisateur', component: UtilisateurComponent }
+    { path: 'utilisateur', component: UtilisateurComponent },
+    { path: 'add-prestateur', component: PrestateurComponent },
+    { path: 'prestateurs', component: PrestateurListComponent },
+    { path: 'edit-prestateur/:id', component: PrestateurComponent },
+    {path: 'sidebars', component:SidebarComponent}
     
     
 ];

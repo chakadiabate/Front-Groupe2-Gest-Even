@@ -6,7 +6,7 @@ import { BehaviorSubject, map, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:8081';  // Change this to your backend URL
+  private baseUrl = 'http://localhost:8080';  // Change this to your backend URL
   private userRoleSubject = new BehaviorSubject<string | null>(null);
   public userRole$ = this.userRoleSubject.asObservable();
 
@@ -22,14 +22,13 @@ export class AuthService {
         // Trouvez l'utilisateur connecté et définissez son rôle
         const user = users.find(user => user.email === email);
         if (user) {
-          
+
           this.userRoleSubject.next(user.role);
 
-          
+
           this.storeUserRole(user.role.role);
           console.log('autentification', user.role.role);
 
-         
         }
         return user;
       })

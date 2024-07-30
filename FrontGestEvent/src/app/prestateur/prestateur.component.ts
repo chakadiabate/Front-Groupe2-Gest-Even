@@ -1,83 +1,45 @@
-import { NgIf, NgForOf } from '@angular/common';
-import { Component, inject, NgModule, OnInit } from '@angular/core';
-import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { ChangeDetectionStrategy, model } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { provideNativeDateAdapter } from '@angular/material/core';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { PrestateurService } from '../Service/prestateur.service';
 import { FormsModule } from '@angular/forms';
-import { SidebarComponent } from "../sidebar/sidebar.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-prestateur',
   standalone: true,
-  imports: [NgIf, RouterOutlet, MatCardModule, MatDatepickerModule, RouterLink, RouterLinkActive, NgForOf, FormsModule, SidebarComponent],
-  providers: [provideNativeDateAdapter()],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'app-prestateur',
   templateUrl: './prestateur.component.html',
-  styleUrls: ['./prestateur.component.css']  // Corrected
+  styleUrls: ['./prestateur.component.css'],
+  imports: [CommonModule, FormsModule, RouterLink] // Importation nécessaire pour ngModel
 })
-export class PrestateurComponent  {
+export class PrestateurComponent implements OnInit {
+  prestateur: any = { nom: '', email: '', profile: '', telephone: '' };
+  isEditMode: boolean = false;
 
-  
+  constructor(
+    private prestateurService: PrestateurService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
- Presta:any = {
-
-  "id": 0,
-  "nom": "",
-  "mail":"",
-  "tel": "",
-  "profile":"",
-  "description":""
- }
-  http = inject(HttpClient);
-
- CreerPresta(){
-  debugger;
-  this.http.post("http://localhost:8080/api/prestateurs", this.Presta).subscribe((res:any)=>{
-    debugger;
-    if(res.result){
-      alert("Prestateur ajouter avec succès");
-    }else{
-      alert(res.message)
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.isEditMode = true;
+      this.prestateurService.getPrestateurById(Number(id)).subscribe(data => {
+        this.prestateur = data;
+      });
     }
-  })
- }
-
-
-
-
-  
-  selected = model<Date | null>(null);
-  visible = false;
-  visibleAgenda = false;
-  modifier = false;
-  profile = false;
-
-  afficher(){
-    this.visible = true;
-  }
-  cacher() {
-    this.visible = false;
   }
 
-  afficherAgenda(){
-    this.visibleAgenda = true;
-  }
-  cacherAgenda() {
-    this.visibleAgenda = false;
-  }
-  afficherModifier(){
-    this.modifier = true;
-  }
-  cacherModifier() {
-    this.modifier = false;
-  }
-  afficherprofile(){
-    this.profile = true;
-  }
-  cacherprofile() {
-    this.profile = false;
+  savePrestateur(): void {
+    if (this.isEditMode) {
+      this.prestateurService.updateprestateur(this.prestateur.id, this.prestateur).subscribe(() => {
+        this.router.navigate(['/prestateurs']);
+      });
+    } else {
+      this.prestateurService.createPrestateur(this.prestateur).subscribe(() => {
+        this.router.navigate(['/prestateurs']);
+      });
+    }
   }
 }
