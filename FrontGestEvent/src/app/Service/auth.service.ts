@@ -21,6 +21,7 @@ export class AuthService {
       map(users => {
         // Trouvez l'utilisateur connecté et définissez son rôle
         const user = users.find(user => user.email === email);
+      
         if (user) {
           
           this.userRoleSubject.next(user.role);
@@ -44,4 +45,11 @@ export class AuthService {
   public getUserRole(): string | null {
     return localStorage.getItem('userRole');
   }
+
+  public logout(): void {
+    localStorage.removeItem('userRole');
+    console.log('Déconnecté');
+  }
+
+  
 }

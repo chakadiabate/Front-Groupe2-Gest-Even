@@ -6,6 +6,9 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { Role, Utilisateur } from '../Models/utilisateurmodel.component';
 import { RoleService } from '../Service/role.service';
 import { SidebarComponent } from "../sidebar/sidebar.component";
+import { NgxPaginationModule } from 'ngx-pagination';
+import { RouterLink, RouterOutlet } from '@angular/router';
+
 
 @Component({
   selector: 'app-utilisateur',
@@ -13,10 +16,13 @@ import { SidebarComponent } from "../sidebar/sidebar.component";
   imports: [
     NgIf,
     NgForOf,
+    RouterLink,
+    RouterOutlet,
     FormsModule,
     CommonModule,
     ReactiveFormsModule,
-    SidebarComponent
+    SidebarComponent,
+    NgxPaginationModule
 ],
   templateUrl: './utilisateur.component.html',
   styleUrl: './utilisateur.component.css'
@@ -25,12 +31,15 @@ export class UtilisateurComponent implements OnInit{
   
   utilisateurForm: FormGroup;
   utilisateurs: Utilisateur[] = [];
+  filteredUtilisateurs: Utilisateur[] = [];
   roles: Role[] = [];
-
-  roless : any =[]
-  isEditing: boolean = false;
+  isEditing = false;
   currentUserId: number | null = null;
-  searchQuery: string = '';
+  searchText = '';
+
+  // Pagination properties
+  p: number = 1; // Current page
+  itemsPerPage: number = 5; // Number of items per page
 
   constructor(
     private utilisateurService: UtilisateurServiceService,
@@ -54,7 +63,11 @@ export class UtilisateurComponent implements OnInit{
 
   getAllUsers(): void {
     this.utilisateurService.getAllUsers().subscribe(
-      (data: Utilisateur[]) => this.utilisateurs = data,
+      (data: Utilisateur[]) => {
+        this.utilisateurs = data;
+        console.log(data);
+        this.filteredUtilisateurs = data; // Initialiser les utilisateurs filtrés
+      },
       error => console.error(error)
     );
   }
@@ -69,50 +82,92 @@ export class UtilisateurComponent implements OnInit{
         console.error('Error fetching roles:', error);
       }
     );
-  
   }
-
-
-  rolest(){
-    this.utilisateurService.getRoles().subscribe((data)=>{
-      this.roless= data;
-      console.log(data)
-    })
-  }
-  
 
   onSubmit(): void {
     if (this.isEditing && this.currentUserId !== null) {
       this.updateUser();
     } else {
-      this.addUser();
+      const newUser: Utilisateur = this.utilisateurForm.value;
+      newUser.role = { id: this.utilisateurForm.value.roleId } as Role; // Map roleId to role object
+      
+      console.log('Roles:', this.roles);
+      console.log('New user:', newUser);
+  
+      const role = this.roles.find(r => r.id === newUser.role.id)?.role;
+      console.log('Role:', role);
+      console.log('Role ID:', newUser.role.id);
+      this.addAdmin(newUser);
+      /*
+      if (!role) {
+        console.error('Role non défini:', newUser.role.id);
+        return; // Sortir de la méthode si le rôle n'est pas défini
+      }
+      
+      switch (role) {
+        case 'ADMIN':
+          this.addAdmin(newUser);
+          break;
+        case 'PERSONNEL':
+          this.addPersonnel(newUser);
+          break;
+        case 'ORGANISATEUR':
+          this.addOrganisateur(newUser);
+          break;
+        default:
+          console.error('Role non définit:', role);
+      }*/
     }
   }
-
-  addUser(): void {
-    const newUser: Utilisateur = this.utilisateurForm.value;
+  
+  //=========Logique d'ajout des utilisateurs=============
+  
+  addAdmin(newUser: Utilisateur): void {
     newUser.role = { id: this.utilisateurForm.value.roleId } as Role; // Map roleId to role object
-    this.utilisateurService.createUser(newUser).subscribe({
-      next: (data) => {
+    this.utilisateurService.createUser(newUser).subscribe(
+      data => {
         this.utilisateurs.push(data);
+        this.filteredUtilisateurs.push(data); // Ajoutez également à la liste filtrée
         this.utilisateurForm.reset();
       },
-      error: (error) => {
-        console.error(error);
-      },
-      complete: () => {
-        console.log('User creation complete');
-      }
-    });
+      error => console.error(error)
+    );
   }
-  
+
+  addPersonnel(newPer: Utilisateur): void {
+    // Logique spécifique pour ajouter un personnel
+    console.log("Adding personnel");
+    this.utilisateurService.createPerso(newPer).subscribe(
+      data => {
+        this.utilisateurs.push(data);
+        this.filteredUtilisateurs.push(data);
+        this.utilisateurForm.reset();
+      },
+      error => console.error(error)
+    );
+  }
+
+  addOrganisateur(newOrg: Utilisateur): void {
+    // Logique spécifique pour ajouter un organisateur
+    console.log("Adding organisateur");
+    this.utilisateurService.createUser(newOrg).subscribe(
+      data => {
+        this.utilisateurs.push(data);
+        this.filteredUtilisateurs.push(data);
+        this.utilisateurForm.reset();
+      },
+      error => console.error(error)
+    );
+  }
+
+  //=====Fin de cette logique ====================
   
   editUser(user: Utilisateur): void {
     this.isEditing = true;
     this.currentUserId = user.id !== undefined ? user.id : null;
     this.utilisateurForm.patchValue({
       ...user,
-      role: user.role?.id
+      roleId: user.role?.id
     });
   }
 
@@ -125,6 +180,7 @@ export class UtilisateurComponent implements OnInit{
           const index = this.utilisateurs.findIndex(u => u.id === this.currentUserId);
           if (index !== -1) {
             this.utilisateurs[index] = data;
+            this.filteredUtilisateurs[index] = data; // Mettez à jour aussi la liste filtrée
           }
           this.utilisateurForm.reset();
           this.isEditing = false;
@@ -134,24 +190,27 @@ export class UtilisateurComponent implements OnInit{
       );
     }
   }
-  
 
   deleteUser(id: number): void {
     this.utilisateurService.deleteUser(id).subscribe(
-      () => this.utilisateurs = this.utilisateurs.filter(u => u.id !== id),
+      () => {
+        this.utilisateurs = this.utilisateurs.filter(u => u.id !== id);
+        this.filteredUtilisateurs = this.filteredUtilisateurs.filter(u => u.id !== id); // Mettez à jour aussi la liste filtrée
+      },
       error => console.error(error)
     );
   }
 
-  onSearch(): void {
-    this.utilisateurService.searchUsers(this.searchQuery).subscribe(
-      data => this.utilisateurs = data,
-      error => console.error(error)
+  filterUsers(): void {
+    this.filteredUtilisateurs = this.utilisateurs.filter(user =>
+      user.nom.toLowerCase().includes(this.searchText.toLowerCase()) ||
+      user.prenom.toLowerCase().includes(this.searchText.toLowerCase()) ||
+      user.email.toLowerCase().includes(this.searchText.toLowerCase()) ||
+      user.telephone.toLowerCase().includes(this.searchText.toLowerCase()) ||
+      (user.role ? user.role.role.toLowerCase().includes(this.searchText.toLowerCase()) : false)
     );
+    this.p = 1; // Reset to first page on filter change
   }
-
-
-
 
 
 

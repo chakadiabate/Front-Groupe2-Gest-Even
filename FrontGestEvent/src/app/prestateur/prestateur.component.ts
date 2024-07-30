@@ -6,8 +6,10 @@ import { MatCardModule } from '@angular/material/card';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { HttpClient } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,FormBuilder } from '@angular/forms';
 import { SidebarComponent } from "../sidebar/sidebar.component";
+import { Prestateur } from '../Models/utilisateurmodel.component';
+import { PrestateurService } from '../Service/prestateur.service';
 
 @Component({
   selector: 'app-prestateur',
@@ -19,41 +21,21 @@ import { SidebarComponent } from "../sidebar/sidebar.component";
   styleUrls: ['./prestateur.component.css']  // Corrected
 })
 export class PrestateurComponent  {
-
-  
-
- Presta:any = {
-
-  "id": 0,
-  "nom": "",
-  "mail":"",
-  "tel": "",
-  "profile":"",
-  "description":""
- }
-  http = inject(HttpClient);
-
- CreerPresta(){
-  debugger;
-  this.http.post("http://localhost:8080/api/prestateurs", this.Presta).subscribe((res:any)=>{
-    debugger;
-    if(res.result){
-      alert("Prestateur ajouter avec succès");
-    }else{
-      alert(res.message)
-    }
-  })
- }
-
-
-
-
-  
-  selected = model<Date | null>(null);
+  catpop = false;
+  typepop = false;
   visible = false;
-  visibleAgenda = false;
   modifier = false;
   profile = false;
+
+  catpopup() {
+    this.typepop = false;
+    this.catpop = !this.catpop;
+  }
+
+  typepopup() {
+    this.catpop = false;
+    this.typepop = !this.typepop;
+  }
 
   afficher(){
     this.visible = true;
@@ -62,12 +44,6 @@ export class PrestateurComponent  {
     this.visible = false;
   }
 
-  afficherAgenda(){
-    this.visibleAgenda = true;
-  }
-  cacherAgenda() {
-    this.visibleAgenda = false;
-  }
   afficherModifier(){
     this.modifier = true;
   }
@@ -80,4 +56,39 @@ export class PrestateurComponent  {
   cacherprofile() {
     this.profile = false;
   }
+//Logique d affichage des donnees 
+
+Prestateurs: Prestateur[] = [];
+  constructor(
+    private prestateurservice: PrestateurService,
+    private fb: FormBuilder
+  ) {
+    // this.reservationForm = this.fb.group({
+    //   date_res: ['2024-07-29 09:18:28.000000', Validators.required],
+    //   categories: [1, Validators.required],
+    //   evenement_id: [1, [Validators.required, Validators.email]],
+    //   methode_paiement_id: [1, Validators.required],
+    //   statut_id: [1, Validators.required],
+    //   utilisateur_id: [1, Validators.required]
+    // });
+  }
+
+  ngOnInit(): void {
+    this.getAllPrestateurs();
+  }
+
+
+  getAllPrestateurs(): void {
+    this.prestateurservice.getAllPrestateur().subscribe(
+      (data: Prestateur[]) => {
+        this.Prestateurs = data;
+    
+      },
+      error => console.error(error)
+    );
+  }
+
+//Fin logique d affichage des donnees
+  
+
 }

@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import { Lieu } from '../Models/utilisateurmodel.component';
 @Injectable({
   providedIn: 'root',
 })
@@ -14,16 +15,16 @@ export class LieuService {
     return this.http.get<any>(`${this.baseUrl}/Afficher/${id}`);
   }
 
-  getAllLieu(): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}`);
+  getAllLieu(): Observable<Lieu[]> {
+    return this.http.get<Lieu[]>(`${this.baseUrl}/ListeLieu`);
   }
 
-  createLieu(Lieu: object){
-    return this.http.post<object>(`${this.baseUrl}/Ajouter`, Lieu);
+  createLieu(Lieu: Lieu){
+    return this.http.post<Lieu[]>(`${this.baseUrl}/Ajouter`, Lieu);
   }
 
-  updateLieu(id: number, Lieu:Object): Observable<Object> {
-    return this.http.put<Object>(`${this.baseUrl}/update/{id}`, Lieu);
+  updateLieu(id: number, Lieu:Lieu[]): Observable<Lieu[]> {
+    return this.http.put<Lieu[]>(`${this.baseUrl}/update/{id}`, Lieu);
   }
 
   deleteLieu(id: number): Observable<void> {

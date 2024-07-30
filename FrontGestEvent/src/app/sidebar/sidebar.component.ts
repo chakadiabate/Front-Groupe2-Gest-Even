@@ -1,6 +1,6 @@
 import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { RouterLinkActive } from '@angular/router';
 import { AuthService } from '../Service/auth.service';
@@ -14,7 +14,7 @@ import { AuthService } from '../Service/auth.service';
 export class SidebarComponent {
  
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService ,private router: Router) {}
   visible = false;
   role: string | null = null;
 
@@ -32,6 +32,11 @@ export class SidebarComponent {
       this.role = localStorage.getItem("userRole");
       console.log('je suis admin sidebar', localStorage.getItem("userRole"));
     });
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/']); // Redirige vers la page de connexion
   }
 
 

@@ -16,7 +16,7 @@
                         <img src="assets/images/profil.jpg" alt="">
                         <span><h3>Mody Barry</h3> <br> Administrateur</span>
                     </div>
-                        <span><i class="fa-solid fa-circle-chevron-down"></i></span>
+                    <span><i class="fa-solid fa-circle-chevron-down" routerLink="/reglage"></i></span>
                 </div>
         </div>
 
@@ -36,15 +36,17 @@
                 <tr>
                     <th>ID</th>
                     <th>Nom</th>
-                    <th>Designation</th>
-                    <th>Date fin</th>
+                    <th>Description</th>
+                    <th> Nom Fornisseur</th>
+                    <th>Email Fournisseur</th>
                     <th>Action</th>
                 </tr>
-                <tr>
-                    <td>ID</td>
-                    <td>Nom</td>
-                    <td>Designation</td>
-                    <td>Date fin</td>
+                <tr *ngFor="let equi of equipements">
+                    <td>{{ equi.id }}</td>
+                    <td>{{ equi.nom  }}</td>
+                    <td>{{ equi.description}}</td>
+                    <td>{{equi.presta.nom_presta}}</td>
+                    <td>{{ equi.presta.email }}</td>
                     <td>
                         <i style="color: rgb(53, 53, 238);" class="fa-solid fa-pen-to-square"></i>
                         <i style="color: red;" class="fa-solid fa-trash"></i>

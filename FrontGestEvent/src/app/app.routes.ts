@@ -12,18 +12,21 @@ import { ReglageComponent } from './reglage/reglage.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { LoginComponent } from './login/login.component';
+import { TasklistComponent } from './tasklist/tasklist.component';
+
 
 
 export const routes: Routes = [
     { path: '', component: LoginComponent },
     { path: 'evenement', component: EvenementComponent },
-    { path: 'acceuil', component:AcceuilComponent},
+    { path: 'accueil', component:AcceuilComponent},
     { path: 'reservation', component: ReservationComponent },
     { path: 'prestateur', component: PrestateurComponent },
     { path: 'lieu', component: LieuComponent },
     { path: 'equipement', component: EquipementComponent },
-    { path: 'reglage', component:ReglageComponent },
-    { path: 'utilisateur', component: UtilisateurComponent }
+    { path: 'utilisateur', component: UtilisateurComponent },
+    { path: 'reglage', component: ReglageComponent },
+    { path: 'tasklist', component: TasklistComponent }
     
     
 ];

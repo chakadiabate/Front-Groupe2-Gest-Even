@@ -2,8 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {NgForOf, NgIf} from "@angular/common";
 import {LieuService} from "../Service/Lieu.service";
 import {HttpClient} from "@angular/common/http";
-import {FormsModule} from "@angular/forms";
+import {FormsModule,FormBuilder} from "@angular/forms";
 import { SidebarComponent } from "../sidebar/sidebar.component";
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { Lieu } from '../Models/utilisateurmodel.component';
 
 @Component({
   selector: 'app-lieu',
@@ -12,46 +14,47 @@ import { SidebarComponent } from "../sidebar/sidebar.component";
     NgIf,
     NgForOf,
     FormsModule,
-    SidebarComponent
+    SidebarComponent,
+    RouterOutlet,
+    RouterLink
 ],
   templateUrl: './lieu.component.html',
   styleUrl: './lieu.component.css'
 })
 export class LieuComponent implements OnInit{
-  visible = false;
-  public lieus : any;
-  public apis : any;
-
-  constructor(public http : HttpClient, private lieuService : LieuService) {}
-
-  ngOnInit() {
-    this.lieuService.getAllLieu().subscribe(data => {
-      this.lieus = data;
-      console.log(data);
-    });
-
-
-
-   /*this.lieus = [
-      {id : 1, nom: "Stade du 26 Mars", adresse: "Yirimadio", salle: "La Salle de conférence", capacite: 35},
-      {id : 1, nom: "Stade du 26 Mars", adresse: "Yirimadio", salle: "La Salle de conférence", capacite: 35},
-      {id : 1, nom: "Stade du 26 Mars", adresse: "Yirimadio", salle: "La Salle de conférence", capacite: 35},
-      {id : 1, nom: "Stade du 26 Mars", adresse: "Yirimadio", salle: "La Salle de conférence", capacite: 35},
-    ];*/
-
-
-  }
-  public creer = {
-    "id" : 0,
-    "nom" : "",
-    "adresse": "",
-    "salle": "",
-    "capacite": 0
+  Lieux: Lieu[] = [];
+  constructor(
+    private lieuservice: LieuService,
+    private fb: FormBuilder
+  ) {
+    // this.reservationForm = this.fb.group({
+    //   date_res: ['2024-07-29 09:18:28.000000', Validators.required],
+    //   categories: [1, Validators.required],
+    //   evenement_id: [1, [Validators.required, Validators.email]],
+    //   methode_paiement_id: [1, Validators.required],
+    //   statut_id: [1, Validators.required],
+    //   utilisateur_id: [1, Validators.required]
+    // });
   }
 
-  creerLieu() {
-    this.lieuService.createLieu(this.creer).subscribe();
+  ngOnInit(): void {
+    this.getAllLieu();
   }
+
+
+  getAllLieu(): void {
+    this.lieuservice.getAllLieu().subscribe(
+      (data: Lieu[]) => {
+        this.Lieux = data;
+    
+      },
+      error => console.error(error)
+    );
+  }
+
+
+  
+visible=false;
 
 
   afficher(){
@@ -62,5 +65,13 @@ export class LieuComponent implements OnInit{
   }
 
 
-}
+
+  }
+  
+
+  
+
+
+
+
 

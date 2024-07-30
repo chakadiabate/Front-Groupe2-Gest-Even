@@ -15,7 +15,12 @@ export class UtilisateurServiceService {
   createUser(utilisateur: Utilisateur): Observable<Utilisateur> {
     return this.http.post<Utilisateur>(`${this.baseUrl}/CreerAdmin`, utilisateur);
   }
-
+  createOrga(utilisateur: Utilisateur): Observable<Utilisateur> {
+    return this.http.post<Utilisateur>(`${this.baseUrl}/CreerOrga`, utilisateur);
+  }
+  createPerso(utilisateur: Utilisateur): Observable<Utilisateur> {
+    return this.http.post<Utilisateur>(`${this.baseUrl}/CreerGest`, utilisateur);
+  }
   updateUser(id: number, utilisateur: Utilisateur): Observable<Utilisateur> {
     return this.http.put<Utilisateur>(`${this.baseUrl}/UpdateUser/${id}`, utilisateur);
   }
