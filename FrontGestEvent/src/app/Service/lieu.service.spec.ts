@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class anyService {
-  private apiUrl = 'http://your-api-url/any';  
+  private apiUrl = 'http://localhost:8080/gestEvent/lieu';  
 
   constructor(private http: HttpClient) { }
 

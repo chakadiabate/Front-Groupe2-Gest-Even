@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, FormsModule, RouterLink] // Importation nécessaire pour ngModel
 })
 export class PrestateurComponent implements OnInit {
-  prestateur: any = { nom: '', email: '', profile: '', telephone: '' };
+  prestateur: any = { nom: '', email: '', profile: '', telephone: '', description:'' };
   isEditMode: boolean = false;
 
   constructor(

@@ -1,22 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900");
 
-.body {
+.body{
     width: 100%;
     height: 100vh;
     display: flex;
 }
-
-.Bigblock {
+.Bigblock{
     width: 82vw;
     position: relative;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    font-family: 'Poppins', sans-serif;
+    font-family:'Poppins', sans-serif ;
     /* background-color: red; */
 }
-
-.nav {
+.nav{
     width: 80vw;
     height: 35%;
     background-color: #ed6414;
@@ -27,15 +25,12 @@
     align-items: center;
     margin: 10px;
 }
-
-.bloc1,
-.bloc2 {
+.bloc1 , .bloc2{
     width: 90%;
     height: 70px;
     border-radius: 10px;
 }
-
-.bloc1 {
+.bloc1{
     display: flex;
     justify-content: space-between;
     /* flex-wrap: wrap; */
@@ -44,7 +39,7 @@
 }
 
 
-.profil {
+.profil{
     height: 60px !important;
     padding: 5px;
     background-color: white;
@@ -53,37 +48,31 @@
     align-items: center;
     border-radius: 10px;
     box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.356);
-    margin-right: 0%;
 
 }
-
-.profil .textezone {
+.profil .textezone{
     height: 100%;
     display: flex;
     line-height: 1px;
 }
-
-.profil .textezone span {
+.profil .textezone span{
     line-height: 2px;
 }
-
-.profil img {
+.profil img{
     width: 60px;
     border-radius: 10px;
     margin-right: 10px;
 }
-
-.profil span i {
+.profil span i{
     margin-left: 10px;
     font-size: 1.2rem;
 }
-
-.profil span i:hover {
+.profil span i:hover{
     cursor: pointer;
 }
 
 
-.profil button {
+.profil button{
     border: none;
     background-color: transparent;
     /* margin-right: 10px; */
@@ -92,26 +81,24 @@
 
 
 
-.bloc2 {
+.bloc2{
     display: flex;
-    width: 100%;
     background-color: white;
     height: auto;
     border-radius: 10px;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 10px;
+    padding: 0px 10px ;
 
-
+    
 }
 
-.cherche {
+.cherche{
     position: relative;
     display: flex;
     font-size: 1.2rem;
 }
-
-.cherche input {
+.cherche input{
     width: 300px;
     padding: 10px 5px;
     border-radius: 10px;
@@ -121,54 +108,46 @@
     z-index: 1;
     font-size: 1.2rem;
 }
-
-.cherche input:focus {
+.cherche input:focus{
     border: none;
 }
-
-.cherche i {
-    position: absolute;
-    left: 10px;
-    top: 13px;
-    z-index: 2;
-    color: rgba(0, 0, 0, 0.527);
+.cherche i{
+  position: absolute;
+  left: 10px; 
+  top: 13px;
+  z-index: 2; 
+  color: rgba(48, 31, 31, 0.527);
 }
 
-.ecart {
-    margin: 80%;
-}
 
-.bloc2 .droite a {
-    display: flex;
+
+.bloc2 .droite a{  
+    display: flex; 
     text-decoration: none;
     padding: 15px 15px;
     border-radius: 10px;
     background-color: #ed6414;
     color: white;
 }
-
-.bloc2 .droite a:hover {
+.bloc2 .droite a:hover{   
     box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.555);
     cursor: pointer;
-    margin-right: 50px;
 }
-
-.bloc2 .droite a i {
-    margin-right: 2px;
+.bloc2 .droite a i{   
+    margin-right: 0px;
     align-items: center;
-
+    
 }
 
 
 @media screen and (max-width: 900px) {
-    .nav {
+    .nav{
         /* width: auto; */
         height: 50%;
-
+        
     }
-
-    .bloc1 {
-
+    .bloc1{
+        
         flex-direction: column-reverse;
         justify-content: space-around;
         flex-wrap: wrap;
@@ -176,8 +155,7 @@
         gap: 10px;
         /* flex-direction:column; */
     }
-
-    .bloc2 {
+    .bloc2{
         width: 100%;
         display: flex;
         align-items: center;
@@ -185,65 +163,56 @@
         padding: 20px;
         /* gap: 5px; */
     }
-
-
-
-    .bloc2 h1 {
+    
+    
+    
+    .bloc2 h1{
         display: flex;
         font-size: 1.5rem;
         display: flex;
         align-items: center;
         /* margin-top: -10px; */
-
+        
     }
-
-    .Bigblock {
+    .Bigblock{
         width: calc(100vw - 70px);
     }
-
-    .nav {
+    .nav{
         margin: 5 auto;
         width: 96%;
         height: 50%;
-
+        
     }
-
-    .tableau {
+    .tableau{
         display: flex;
         flex-direction: column;
-
-        width: 98%;
+        
+        width:98%;    
     }
-
-    .tableau table {
+    .tableau table{
         min-width: 800px;
         flex-wrap: nowrap;
         overflow: scroll;
     }
-
-
+    
+    
 
 }
-
 @media screen and (max-width: 700px) {
-    .bloc2 {
+    .bloc2{
         flex-direction: column;
     }
-
-    .bloc2 .droite {
+    .bloc2 .droite{
         font-size: small;
     }
-
-    .bloc2 .droite a {
-        padding: 10px;
+    .bloc2 .droite a{
+        padding: 10px; 
         border-radius: 5px;
     }
-
-    .bloc2 h1 {
+    .bloc2 h1{
         margin-top: -15px;
-
+        
     }
-
     /* .Bigblock{
         overflow-x: scroll;
     
@@ -251,15 +220,14 @@
     /* .tableau{
         width:90%;    
     } */
-
+    
 }
-
 /* @media screen and (max-width: 1100px) { */
-/* .Bigblock{
+    /* .Bigblock{
         width: calc(100vw - 25vw);
         overflow-x: hidden;
     } */
-/* .nav{
+    /* .nav{
         width: 96%;
         height: 50%;
         
@@ -279,58 +247,50 @@
 
 
 /* TABLEAU */
-.tableau {
+.tableau{
     height: 60%;
     margin: 0 auto;
     overflow-y: scroll;
     border-radius: 10px;
-
+    
 }
-
-.tableau::-webkit-scrollbar {
+.tableau::-webkit-scrollbar{
     display: none;
 }
-
-.tableau table {
+.tableau table{
     background-color: white;
     width: 79vw;
     text-align: center;
     border-collapse: collapse;
-    box-shadow: inset 0 -5px 6px rgba(0, 0, 0, 0.5);
+    box-shadow: inset  0 -5px 6px rgba(0, 0, 0, 0.5);
 }
-
-.tableau table tr,
-th,
-td {
+.tableau table tr,th,td{
     height: 50px;
 }
-
-.tableau table td {
+.tableau table td{
     border: none;
     border-collapse: collapse;
 }
-
-.tableau table tr:nth-child(even) {
+.tableau table tr:nth-child(even){
     background-color: rgba(122, 121, 121, 0.096);
 }
-
-.tableau table tr>td:last-child {
+.tableau table tr> td:last-child{
     display: flex;
     justify-content: space-around;
     align-items: center;
     font-size: 1.5rem;
 }
-
-.tableau table tr>td:last-child i:hover {
+.tableau table tr> td:last-child i:hover{
     cursor: pointer;
-
+    
 }
 
 
 
 
+
 /* ++++++++++++++++++++ FORMULAIRE D'AJOUT EVENEMENT ++++++++++++++++++++++++++++++++++++++*/
-.ombre {
+.ombre{
     width: 100%;
     height: 100%;
     position: absolute;
@@ -343,7 +303,7 @@ td {
     transition: all 0.5s ease-in-out;
 }
 
-form {
+form{
     background-color: white;
     width: 60%;
     height: 95%;
@@ -354,13 +314,11 @@ form {
     /* flex-direction: column; */
     text-align: center;
 }
-
-.btnFermer {
+.btnFermer{
     display: flex;
     justify-content: flex-end;
 }
-
-.btnFermer i {
+.btnFermer i{
     width: 10px;
     height: 10px;
     padding: 10px;
@@ -371,21 +329,18 @@ form {
     border-radius: 50%;
     color: white;
 }
-
-.btnFermer i:hover {
+.btnFermer i:hover{
     cursor: pointer;
     box-shadow: -1px -1px 10px rgba(0, 0, 0, 0.39);
 }
-
-.input {
+.input{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
-
-.input>.Entree {
+.input > .Entree{
     width: 95%;
     display: flex;
     /* flex-direction: column; */
@@ -394,37 +349,31 @@ form {
 }
 
 
-.Entree input,
-.Entree select,
-.Entree textarea {
+.Entree input,.Entree select,.Entree textarea{
     width: 65%;
     border: 1px solid rgba(0, 0, 0, 0.336);
     padding: 10px 5px;
-    border-radius: 5px;
+    border-radius: 5px; 
 }
-
-.Entree select {
+.Entree select{
     width: 67%;
 }
-
-.Entree textarea {
-    width: 65%;
+.Entree textarea{
+    width:65%;
     max-width: 65%;
     max-height: 31px;
 }
-
-.Entree label {
+.Entree label{
     text-align: left;
     /* display:flex ;
     justify-content: flex-start;
     align-items: start; */
 }
 
-.btnAjouter {
-    margin-top: 20px;
+.btnAjouter{
+   margin-top: 20px;
 }
-
-.btnAjouter button {
+.btnAjouter button{   
     text-decoration: none;
     padding: 15px 50px;
     border-radius: 10px;
@@ -433,23 +382,20 @@ form {
     border: none;
     font-size: 1.2rem;
 }
-
-.btnAjouter button:hover {
+.btnAjouter button:hover{   
     box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.555);
     cursor: pointer;
 }
 
-@media screen and (max-width: 1000px) {
-    form {
+@media screen and (max-width: 1000px)  {
+    form{
         width: 90%;
     }
-
     /* .tableau {
         width: 90%;
     } */
-
+    
 }
-
 /* @media screen and (max-width: 1200px)  {
     .tableau table{
         min-width: 800px;
@@ -458,3 +404,7 @@ form {
     }
     
 } */
+
+
+
+
