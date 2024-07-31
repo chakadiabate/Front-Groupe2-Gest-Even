@@ -1,125 +1,47 @@
 
-<div class="body">
-  <app-sidebar></app-sidebar>
-<div class="Bigblock">
-  <div class="nav">
+<body>
+    <div >
+        <div >
+            <div >
+                <div class="card">
+                    <div class="card-header">
+                        <h2>{{ isEditMode ? 'Edit Prestateur' : 'Add Prestateur' }}</h2>
+                    </div>
+                    <div class="card-body">
+                        <form (ngSubmit)="savePrestateur()">
+                            <div class="form-group">
+                                <label for="nom">Nom</label>
+                                <input type="text" id="nom" class="form-control" [(ngModel)]="prestateur.nom" name="nom" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" class="form-control" [(ngModel)]="prestateur.email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="profile">Profile Prestateur</label>
+                                <input type="text" id="profile" class="form-control" [(ngModel)]="prestateur.profile" name="profile" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telephone">Telephone</label>
+                                <input type="tel" id="telephone" class="form-control" [(ngModel)]="prestateur.telephone" name="telephone" required>
+                            </div>
 
-      <div class="bloc1">
-          <div class="recherche">
-              <span class="cherche">
-                  <i class="fa-solid fa-magnifying-glass"></i>
-                  <input type="text" placeholder="Recherche">
-              </span>
-          </div>
-          
-              <div class="profil">
-                  <div class="textezone">
-                      <img src="assets/images/profil.jpg" alt="">
-                      <span><h3>Mody Barry</h3> <br> Administrateur</span>
-                  </div>
-                      <span><i class="fa-solid fa-circle-chevron-down"></i></span>
-              </div>
-      </div>
-
-      <div class="bloc2">
-          
-              <h1>Liste des Prestateurs</h1>
-          
-          <div class="droite">
-              <a (click)="afficher()"><i class="fa-solid fa-plus"></i><span>Ajouter Prestateur</span></a>
-          </div>
-      </div>
-  
-  </div>
-
-  <div class="tableau">
-          <table>
-              <tr>
-                  <th>ID</th>
-                  <th>Nom</th>
-                  <th>Designation</th>
-                  <th>Date fin</th>
-                  <th>Action</th>
-              </tr>
-              <tr>
-                  <td>ID</td>
-                  <td>Nom</td>
-                  <td>Designation</td>
-                  <td>Date fin</td>
-                  <td>
-                      <i style="color: rgb(53, 53, 238);" class="fa-solid fa-pen-to-square"></i>
-                      <i style="color: red;" class="fa-solid fa-trash"></i>
-                  </td>
-              </tr>
-             
-          </table>
-  </div>
-
-
-
-  <div class="ombre" *ngIf="visible">
-      <form action="">
-          <div class="btnFermer" (click)="cacher()"><i class="fa-solid fa-xmark"></i></div>
-          <h1>Ajouter Prestateur</h1>
-          <div class="input">
-              
-              <div class="Entree">
-                  <label for="">Nom</label>
-                  <input type="text" placeholder="Nom de l'évévement">
-              </div>
-              <div class="Entree">
-                  <label for="">Date de début</label>
-                  <input type="date" placeholder="Nom de l'évévement">
-              </div>
-              <div class="Entree">
-                  <label for="">Date de fin</label>
-                  <input type="date" placeholder="Nom de l'évévement">
-              </div>
-              <div class="Entree">
-                  <label for="">Prestateur</label>
-                   <select name="" id="">
-                      <option value="">AZERTY</option>
-                      <option value="">QWERTY</option>
-                   </select>
-              </div>
-              <div class="Entree">
-                  <label for="">Type événement</label>
-                   <select name="" id="">
-                      <option value="">AZERTY</option>
-                      <option value="">QWERTY</option>
-                   </select>
-              </div>
-              <div class="Entree">
-                  <label for="">Cathégorie événement</label>
-                  <!-- <input type="text" placeholder="Nom de l'évévement"> -->
-                   <select name="" id="">
-                      <option value="">AZERTY</option>
-                      <option value="">QWERTY</option>
-                   </select>
-              </div>
-
-              <div class="Entree">
-                  <label for="">Description</label>
-                  <textarea name="" id=""></textarea>
-              </div>
-          </div>
-          
-          <div class="btnAjouter"> <button>Ajouter</button></div>
-          
-      </form>
-  </div>
-<!-- calendrier---------------------------------------------------------------------   -->
-
-    <div class="calandar" *ngIf="visibleAgenda">
-        <div class="contenu">
-            <!-- <div class="btnFermer" (click)="cacherAgenda()"><i class="fa-solid fa-xmark"></i></div> -->
-             <mat-card class="demo-inline-calendar-card" >
-                <div class="btnFermer" (click)="cacherAgenda()"><i class="fa-solid fa-xmark"></i></div>
-            <mat-calendar [(selected)]="selected"></mat-calendar>
-          </mat-card>
-          <p>Selected date: {{selected()}}</p>
-        </div>  
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <input type="tel" id="description" class="form-control" [(ngModel)]="prestateur.description" name="description" required>
+                            </div>
+                            <!-- <div class="form-group">
+                                <label for="gestionnaire">Gestionnaire</label>
+                                <input type="tel" id="gestionnaire" class="form-control" [(ngModel)]="prestateur.gestionnaireId" name="gestionnaire" required>
+                            </div> -->
+                            <button type="submit" class="btn btn-primary">{{ isEditMode ? 'Update' : 'Save' }}</button>
+                            <a [routerLink]="['/prestateurs']" class="btn btn-secondary ml-2 btn-cancel">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- <router-outlet></router-outlet> -->
-</div>
-</div>
+
+</body>
+

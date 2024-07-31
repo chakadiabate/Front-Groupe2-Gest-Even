@@ -42,4 +42,9 @@ export class UtilisateurServiceService {
   searchUsers(name: string): Observable<Utilisateur[]> {
     return this.http.get<Utilisateur[]>(`${this.baseUrl}/TriParNom`, { params: { name } });
   }
+
+  getCurrentUser(): Observable<Utilisateur> {
+    return this.http.get<Utilisateur>(`${this.baseUrl}/currentSession`);
+  }
+
 }
